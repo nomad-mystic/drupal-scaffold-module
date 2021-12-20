@@ -1,4 +1,5 @@
 // https://www.npmjs.com/package/inquirer
+// https://github.com/SBoudrias/Inquirer.js/blob/master/packages/inquirer/examples/pizza.js
 const inquirer = require('inquirer');
 
 // Internal
