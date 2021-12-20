@@ -11,5 +11,8 @@
     "Druapl"
   ],
   "author": "nomadmystics@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
 }

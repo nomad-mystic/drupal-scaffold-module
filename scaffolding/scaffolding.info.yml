@@ -1,6 +1,6 @@
 name: <MODULE_NAME>
 description: <MODULE_DESCRIPTION>
-package: <MODULE_PACKAGE>
+package: Custom
 
 php: 7.4
 type: module
