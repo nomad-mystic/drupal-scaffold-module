@@ -1,0 +1,14 @@
+{
+  "name": "drupal-scaffold-module",
+  "version": "1.0.0",
+  "description": "Scaffolds Drupal 9 modules with NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Druapl"
+  ],
+  "author": "nomadmystics@gmail.com",
+  "license": "ISC"
+}
