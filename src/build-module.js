@@ -9,31 +9,33 @@ const promptOptions = require('./config/prompt-options');
 const { scaffoldModule } = require('./scaffold/scaffold-module');
 const { whereAmI, isDrupalInstall } = require('./utils/path-utils');
 
-if (!isDrupalInstall()) {
 
-  console.log('Your path is not at the root of your Drupal install')
-  console.log(`You are located at ${whereAmI()}`);
-  console.log('Please move to the root Drupal install folder');
+// This looks good
+// if (!isDrupalInstall()) {
+//
+//   console.log('Your path is not at the root of your Drupal install')
+//   console.log(`You are located at ${whereAmI()}`);
+//   console.log('Please move to the root Drupal install folder');
+//
+// }
 
-}
-//
-//
-// // Starting point for scaffolding a module
-// inquirer
-// .prompt(promptOptions)
-// .then((answers) => {
-//
-//   scaffoldModule(answers);
-//
-// })
-// .catch((error) => {
-//   if (error.isTtyError) {
-//
-//     console.error('Prompt couldn\'t be rendered in the current environment');
-//
-//   } else {
-//     console.log('Something else went wrong');
-//
-//     console.error(error);
-//   }
-// });
+
+// Starting point for scaffolding a module
+inquirer
+.prompt(promptOptions)
+.then((answers) => {
+
+  scaffoldModule(answers);
+
+})
+.catch((error) => {
+  if (error.isTtyError) {
+
+    console.error('Prompt couldn\'t be rendered in the current environment');
+
+  } else {
+    console.log('Something else went wrong');
+
+    console.error(error);
+  }
+});

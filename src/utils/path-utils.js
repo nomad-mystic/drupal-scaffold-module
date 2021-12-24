@@ -23,7 +23,21 @@ const isDrupalInstall = function() {
 
 };
 
+/**
+ * @description
+ *
+ * @return string
+ */
+const getModulesFolderPath = function() {
+  const whereAmI = path.resolve(__dirname);
+
+  // return path.resolve(`${whereAmI}/web/modules/custom/`);
+  // @todo Remove after debugging
+  return path.resolve(`/Users/keith/Sites/com.drupal-test-project/web/modules/custom`);
+};
+
 module.exports = {
   whereAmI,
-  isDrupalInstall
+  isDrupalInstall,
+  getModulesFolderPath,
 };
