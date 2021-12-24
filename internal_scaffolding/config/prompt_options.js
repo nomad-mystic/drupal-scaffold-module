@@ -15,6 +15,12 @@ const promptOptions = [
     message: 'What is the description of your module?',
     default: '',
   },
+  {
+    type: 'confirm',
+    name: 'addBuildSystem',
+    message: 'Would you like to add a front-end build system?',
+    default: false,
+  },
 ];
 
 module.exports = promptOptions;

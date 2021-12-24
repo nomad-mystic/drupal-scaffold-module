@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./internal_scaffolding/build_module.js"
+    "build": "node ./internal_scaffolding/build_module.js",
+    "add": "node ./internal_scaffolding/add_type.js",
+    "eject-config": "node ./internal_scaffolding/eject_config.js"
   },
   "keywords": [
     "Druapl"
