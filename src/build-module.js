@@ -5,19 +5,20 @@ const inquirer = require('inquirer');
 // Get our prompts
 const addOptions = require('./config/build-options');
 
-// Internal functions
+// Internal
 const { scaffoldModule } = require('./scaffold/scaffold-module');
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/path-utils');
+const globalConfig = require('./config/global-config');
 
 
-// This looks good
-// if (!isDrupalInstall()) {
-//
-//   console.log('Your path is not at the root of your Drupal install')
-//   console.log(`You are located at ${whereAmI()}`);
-//   console.log('Please move to the root Drupal install folder');
-//
-// }
+// Let the user know they need to be in the root of the project
+if (!isDrupalInstall() && !globalConfig.debug) {
+
+  console.log('Your path is not at the root of your Drupal install')
+  console.log(`You are located at ${whereAmI()}`);
+  console.log('Please move to the root Drupal install folder');
+
+}
 
 
 // Starting point for scaffolding a module
