@@ -1,22 +1,25 @@
-const buildOptions = [
+const { searchFolderNames } = require('../utils/path-utils');
+
+const addOptions = [
   {
-    type: 'input',
+    type: 'autocomplete',
     name: 'machineName',
     message: 'What is the machine name of your module?',
-    default: 'scaffold_module',
-  },
-  {
-    type: 'input',
-    name: 'moduleAdminName',
-    message: 'What is the admin name of your module?',
-    default: 'Scaffold Module',
-  },
-  {
-    type: 'input',
-    name: 'moduleDescriptionName',
-    message: 'What is the description of your module?',
     default: '',
+    source: function(answersSoFar, input) {
+
+      return searchFolderNames(answersSoFar, input);
+
+    },
+    pageSize: 10,
+  },
+  {
+    type: 'list',
+    name: 'type',
+    message: 'What type of Drupal src file type would like to add?',
+    default: '',
+    choices: ['Command', 'Controller', 'Event Subscriber', 'Form', 'Plugin', 'Twig Extension'],
   },
 ];
 
-module.exports = buildOptions;
+module.exports = addOptions;

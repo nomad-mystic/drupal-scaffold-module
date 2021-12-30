@@ -19,7 +19,6 @@ if (!isDrupalInstall() && !globalConfig.debug) {
 
 }
 
-
 // Starting point for scaffolding a module
 inquirer
 .prompt(buildOptions)

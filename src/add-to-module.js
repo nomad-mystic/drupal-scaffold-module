@@ -1,13 +1,14 @@
 // https://www.npmjs.com/package/inquirer
 const inquirer = require('inquirer');
+inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
 
-// Get our prompts
-const addOptions = require('./config/build-options');
+// Get our configs
+const addOptions = require('./config/add-options');
+const globalConfig = require('./config/global-config');
 
 // Internal
 const { addNewType } = require('./scaffold/add-new-type');
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/path-utils');
-const globalConfig = require('./config/global-config');
 
 // Let the user know they need to be in the root of the project
 if (!isDrupalInstall() && !globalConfig.debug) {

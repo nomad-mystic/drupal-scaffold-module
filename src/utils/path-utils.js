@@ -1,5 +1,8 @@
 const fs = require('fs-extra');
 const path = require('path');
+const fuzzy = require('fuzzy');
+const {readdirSync} = require("fs");
+const { random } = require('lodash');
 
 /**
  * @description Gets the current path
@@ -36,8 +39,53 @@ const getModulesFolderPath = function() {
   return path.resolve(`/Users/keith/Sites/com.drupal-test-project/web/modules/custom`);
 };
 
+/**
+ * @description Get all folder names in the custom directory
+ *
+ * @return array
+ */
+const getModuleFolderNames = function() {
+  // Custom path
+  const customPath = getModulesFolderPath();
+
+  // Just get the top level folder names
+  const getDirectories = readdirSync(customPath, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+
+  return getDirectories;
+};
+
+/**
+ * @description Search the custom folder for module names
+ *
+ * @param {string} answersSoFar
+ * @param {string} input
+ * @return {Promise<unknown>}
+ */
+const searchFolderNames = function(answersSoFar, input) {
+  const moduleNames = getModuleFolderNames();
+
+  input = input || '';
+
+  // Use fuzzy logic to based on the custom folders names and return for usage in adding to our module
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      let fuzzyResult = fuzzy.filter(input, moduleNames);
+
+      resolve(
+        fuzzyResult.map(function (el) {
+          return el.original;
+        })
+      );
+    }, random(30, 500));
+  });
+}
+
 module.exports = {
   whereAmI,
   isDrupalInstall,
   getModulesFolderPath,
+  getModuleFolderNames,
+  searchFolderNames,
 };
