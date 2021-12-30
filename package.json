@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./src/build-module.js",
-    "add": "node ./src/add-type.js",
+    "add": "node ./src/add-to-module.js",
     "eject-config": "node ./src/eject-config.js"
   },
   "keywords": [

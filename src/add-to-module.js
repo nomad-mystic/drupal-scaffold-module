@@ -1,14 +1,13 @@
-// Community
+// https://www.npmjs.com/package/inquirer
 const inquirer = require('inquirer');
 
 // Get our prompts
-const buildOptions = require('./config/build-options');
+const addOptions = require('./config/build-options');
 
 // Internal
-const { scaffoldModule } = require('./scaffold/scaffold-module');
+const { addNewType } = require('./scaffold/add-new-type');
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/path-utils');
 const globalConfig = require('./config/global-config');
-
 
 // Let the user know they need to be in the root of the project
 if (!isDrupalInstall() && !globalConfig.debug) {
@@ -19,16 +18,15 @@ if (!isDrupalInstall() && !globalConfig.debug) {
 
 }
 
-
 // Starting point for scaffolding a module
 inquirer
-.prompt(buildOptions)
+.prompt(addOptions)
 .then((answers) => {
   // Absolute path of the custom folder
   const customPath = getModulesFolderPath();
 
-  // Build the module
-  scaffoldModule(answers);
+
+  addNewType(answers);
 
   // Let the user know it has been created
   console.log("\n");

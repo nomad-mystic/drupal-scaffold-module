@@ -1,12 +1,17 @@
 // Community
 const fse = require('fs-extra');
-const yaml = require('js-yaml');
 
 // Internal
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('../utils/path-utils');
-const { renameBaseFiles } = require('../utils/rename-base-files');
-const {updateModuleFile} = require("../utils/update-module-file");
+const { renameBaseFiles } = require('./build/rename-base-files');
+const {updateModuleFile} = require("./build/update-module-file");
 
+/**
+ * @description This creates a module based on the users inputs
+ *
+ * @param {object} answers
+ * @return void
+ */
 const scaffoldModule = function(answers) {
   // Absolute path of the custom folder
   const customPath = getModulesFolderPath();
@@ -35,7 +40,7 @@ const scaffoldModule = function(answers) {
 
   } catch (err) {
 
-    console.error(err)
+    console.error(err);
 
   }
 };
