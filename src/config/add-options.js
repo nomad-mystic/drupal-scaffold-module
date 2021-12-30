@@ -18,7 +18,13 @@ const addOptions = [
     name: 'type',
     message: 'What type of Drupal src file type would like to add?',
     default: '',
-    choices: ['Command', 'Controller', 'Event Subscriber', 'Form', 'Plugin', 'Twig Extension'],
+    choices: ['Commands', 'Controller', 'EventSubscriber', 'Form', 'Plugin', 'TwigExtension'],
+  },
+  {
+    type: 'input',
+    name: 'className',
+    message: 'What name would you like to give to the new class?',
+    default: 'ClassName',
   },
 ];
 

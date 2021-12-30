@@ -1,0 +1,4 @@
+MODULE_NAME.commands:
+  class: \Drupal\MODULE_NAME\Commands\CLASS_NAME
+  tags:
+    - { name: drush.command }

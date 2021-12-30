@@ -28,10 +28,12 @@ const scaffoldModule = function(answers) {
     // @todo We need to let the user know they have already copied over the files if they use the same name
     fse.copySync('./scaffolding', modulePath, {overwrite: false});
 
-    // Rename the YML and module file based on user input
+    // Rename the YML and install file based on user input
     renameBaseFiles(modulePath, machineName, '.yml');
-    renameBaseFiles(modulePath, machineName, '.module');
+    renameBaseFiles(modulePath, machineName, '.install');
 
+    // Update our .module file
+    renameBaseFiles(modulePath, machineName, '.module');
     updateModuleFile(modulePath, {
       machineName,
       moduleAdminName,
