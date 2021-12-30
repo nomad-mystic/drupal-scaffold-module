@@ -2,7 +2,7 @@ const fs = require("fs");
 const yaml = require('js-yaml');
 
 /**
- * @description Updates the module file with user inputs
+ * @description Updates the .info.yml file with user inputs
  *
  * @param {string} modulePath
  * @param {object} userValues

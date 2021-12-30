@@ -7,7 +7,7 @@ const promptOptions = require('./config/prompt-options');
 
 // Internal functions
 const { scaffoldModule } = require('./scaffold/scaffold-module');
-const { whereAmI, isDrupalInstall } = require('./utils/path-utils');
+const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/path-utils');
 
 
 // This looks good
@@ -24,17 +24,24 @@ const { whereAmI, isDrupalInstall } = require('./utils/path-utils');
 inquirer
 .prompt(promptOptions)
 .then((answers) => {
+  // Absolute path of the custom folder
+  const customPath = getModulesFolderPath();
 
+  // Build the module
   scaffoldModule(answers);
 
+  // Let the user know it has been created
+  console.log("\n");
+  console.log(`Your ${answers.machineName} module has been scaffold.`);
+  console.log(`Check: ${customPath}/${answers.machineName}`);
 })
 .catch((error) => {
   if (error.isTtyError) {
 
-    console.error('Prompt couldn\'t be rendered in the current environment');
+    console.error('Prompt couldn\'t be rendered in the current environment.');
 
   } else {
-    console.log('Something else went wrong');
+    console.log('Something else went wrong!');
 
     console.error(error);
   }
