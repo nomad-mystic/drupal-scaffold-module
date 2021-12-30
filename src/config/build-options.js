@@ -1,4 +1,4 @@
-const promptOptions = [
+const buildOptions = [
   {
     type: 'input',
     name: 'machineName',
@@ -19,4 +19,4 @@ const promptOptions = [
   },
 ];
 
-module.exports = promptOptions;
+module.exports = buildOptions;

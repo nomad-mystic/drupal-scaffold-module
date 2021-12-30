@@ -3,7 +3,7 @@
 const inquirer = require('inquirer');
 
 // Get our prompts
-const promptOptions = require('./config/prompt-options');
+const addOptions = require('./config/build-options');
 
 // Internal functions
 const { scaffoldModule } = require('./scaffold/scaffold-module');
@@ -22,7 +22,7 @@ const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/pat
 
 // Starting point for scaffolding a module
 inquirer
-.prompt(promptOptions)
+.prompt(addOptions)
 .then((answers) => {
   // Absolute path of the custom folder
   const customPath = getModulesFolderPath();
