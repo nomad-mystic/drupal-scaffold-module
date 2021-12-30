@@ -13,9 +13,7 @@ const addNewType = function(answers) {
 
   // User inputs
   const machineName = answers.machineName;
-  const moduleAdminName = answers.moduleAdminName;
-  const moduleDescriptionName = answers.moduleDescriptionName;
-
+  const type = answers.type;
 
   console.log(answers);
 
