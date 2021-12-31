@@ -25,10 +25,8 @@ const addNewType = function(answers) {
   const newClassPath = `${modulePath}/src/${type}/${type}.php`;
   const renamedClassFilePath = `${modulePath}/src/${type}/${className}.php`;
 
-  console.log(answers);
-
   // Copy over class file
-  fse.copySync(`./src/scaffold/add/classes/${type}.php`, newClassPath, {overwrite: false});
+  fse.copySync(`./scaffold/add/classes/${type}.php`, newClassPath, {overwrite: false});
 
   // Rename the class file
   fs.renameSync(newClassPath, renamedClassFilePath);
