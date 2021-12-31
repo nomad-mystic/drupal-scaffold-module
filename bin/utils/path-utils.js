@@ -11,7 +11,7 @@ const { random } = require('lodash');
  */
 const whereAmI = function() {
 
-  return path.resolve(__dirname);
+  return process.cwd();
 
 };
 
@@ -32,7 +32,9 @@ const isDrupalInstall = function() {
  * @return string
  */
 const getModulesFolderPath = function() {
-  const whereAmI = path.resolve(__dirname);
+  const whereAmI = process.cwd();
+
+  console.log(whereAmI);
 
   return path.resolve(`${whereAmI}/web/modules/custom/`);
 };
