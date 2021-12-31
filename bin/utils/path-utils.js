@@ -11,7 +11,7 @@ const { random } = require('lodash');
  */
 const whereAmI = function() {
 
-  return process.cwd();
+  return path.resolve(__dirname);
 
 };
 
@@ -22,7 +22,7 @@ const whereAmI = function() {
  */
 const isDrupalInstall = function() {
 
-  return fs.pathExistsSync(__dirname + '/web/core/lib/Drupal.php');
+  return fs.pathExistsSync('./web/core/lib/Drupal.php');
 
 };
 
@@ -32,11 +32,9 @@ const isDrupalInstall = function() {
  * @return string
  */
 const getModulesFolderPath = function() {
-  const whereAmI = process.cwd();
 
-  console.log(whereAmI);
+  return path.resolve(`./web/modules/custom/`);
 
-  return path.resolve(`${whereAmI}/web/modules/custom/`);
 };
 
 /**

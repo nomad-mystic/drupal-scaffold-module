@@ -15,7 +15,7 @@ const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/pat
 // Let the user know they need to be in the root of the project
 if (!isDrupalInstall() && !globalConfig.debug) {
 
-  console.log('Your path is not at the root of your Drupal install')
+  console.log('Your path is not at the root of your Drupal install');
   console.log(`You are located at ${whereAmI()}`);
   console.log('Please move to the root Drupal install folder');
 
