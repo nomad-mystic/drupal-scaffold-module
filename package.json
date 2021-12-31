@@ -1,6 +1,6 @@
 {
   "name": "@nomadmystic/drupal-scaffold-module",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "Scaffolds Drupal 8|9 modules with NodeJS",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,16 @@
     "drupal-scaffold-add": "./bin/add-to-module.js"
   },
   "keywords": [
-    "Drupal"
+    "Drupal",
+    "CLI"
   ],
+  "engines": {
+    "node": ">=14.15.0"
+  },
+  "bugs": {
+    "url": "https://github.com/nomad-mystic/drupal-scaffold-module/issues"
+  },
+  "homepage": "https://github.com/nomad-mystic/drupal-scaffold-module#readme",
   "author": "nomadmystics@gmail.com",
   "license": "ISC",
   "dependencies": {
