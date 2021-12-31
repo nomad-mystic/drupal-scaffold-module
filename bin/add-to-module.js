@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 // https://www.npmjs.com/package/inquirer
 const inquirer = require('inquirer');
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));

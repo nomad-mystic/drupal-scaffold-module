@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 // Community
 const inquirer = require('inquirer');
 
