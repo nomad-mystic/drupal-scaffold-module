@@ -1,13 +1,17 @@
 {
   "name": "@nomadmystic/drupal-scaffold-module",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Scaffolds Drupal 8|9 modules with NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "drupal-scaffold-module:build": "node ./src/build-module.js",
-    "drupal-scaffold-module:add": "node ./src/add-to-module.js",
-    "drupal-scaffold-module:eject-config": "node ./src/eject-config.js"
+    "build": "node ./bin/build-module.js",
+    "add": "node ./bin/add-to-module.js",
+    "eject-config": "node ./bin/eject-config.js"
+  },
+  "bin": {
+    "drupal-scaffold:build": "./bin/build-module.js",
+    "drupal-scaffold:add": "./bin/add-to-module.js",
+    "drupal-scaffold:eject-config": "./bin/eject-config.js"
   },
   "keywords": [
     "Drupal"
