@@ -27,7 +27,7 @@ const scaffoldModule = function(answers) {
   try {
     // Copy our files over to the modules folder
     // @todo We need to let the user know they have already copied over the files if they use the same name
-    fse.copySync(`${path.resolve(`${__dirname}/scaffolding`)}`, modulePath, {overwrite: false});
+    fse.copySync(`${path.resolve(`${__dirname}` + '../scaffolding')}`, modulePath, {overwrite: false});
 
     // Rename the YML and install file based on user input
     renameBaseFiles(modulePath, machineName, '.yml');
