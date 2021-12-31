@@ -1,5 +1,26 @@
-# WIP
+# WIP (Very much)
 
+
+
+# Installation
+`npm i -g drupal-scaffold-module`
+
+# Commands
+`drupal-scaffold-build`
+
+This command will scaffold a new module in the `./web/modules/custom/` folder.
+
+`drupal-scaffold-add`
+
+This command will scaffold a new class and YML in the `./web/modules/custom/MODULE_NAME` folder. Class that can be added.
+* Command
+* Controller
+* EventSubscriber
+* Form
+* Plugin (Maybe)
+* TwigExtension
+
+---
 # @todos:
 * Scaffolding folder
   * Add base Drupal files
