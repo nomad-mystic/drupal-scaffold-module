@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./bin/build-module.js",
-    "add": "node ./bin/add-to-module.js",
-    "eject-config": "node ./bin/eject-config.js"
+    "add": "node ./bin/add-to-module.js"
   },
   "bin": {
     "drupal-scaffold:build": "./bin/build-module.js",
