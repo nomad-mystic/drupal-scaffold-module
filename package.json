@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./src/build-module.js",
-    "add": "node ./src/add-to-module.js",
-    "eject-config": "node ./src/eject-config.js"
+    "drupal-scaffold-module:build": "node ./src/build-module.js",
+    "drupal-scaffold-module:add": "node ./src/add-to-module.js",
+    "drupal-scaffold-module:eject-config": "node ./src/eject-config.js"
   },
   "keywords": [
     "Drupal"
