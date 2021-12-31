@@ -1,11 +1,11 @@
 {
   "name": "@nomadmystic/drupal-scaffold-module",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Scaffolds Drupal 8|9 modules with NodeJS",
   "main": "index.js",
   "scripts": {
-    "build": "node ./bin/build-module.js",
-    "add": "node ./bin/add-to-module.js"
+    "dev:build": "node ./bin/build-module.js",
+    "dev:add": "node ./bin/add-to-module.js"
   },
   "bin": {
     "drupal-scaffold-build": "./bin/build-module.js",

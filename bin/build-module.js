@@ -10,7 +10,9 @@ const buildOptions = require('./config/build-options');
 const { scaffoldModule } = require('./scaffold/scaffold-module');
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/path-utils');
 const globalConfig = require('./config/global-config');
+const path = require("path");
 
+console.log(whereAmI());
 
 // Let the user know they need to be in the root of the project
 if (!isDrupalInstall() && !globalConfig.debug) {
@@ -19,7 +21,7 @@ if (!isDrupalInstall() && !globalConfig.debug) {
   console.log(`You are located at ${whereAmI()}`);
   console.log('Please move to the root Drupal install folder');
 
-  process.exit(1);
+  process.exit();
 }
 
 // Starting point for scaffolding a module

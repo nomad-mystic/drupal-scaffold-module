@@ -19,7 +19,7 @@ if (!isDrupalInstall() && !globalConfig.debug) {
   console.log(`You are located at ${whereAmI()}`);
   console.log('Please move to the root Drupal install folder');
 
-  process.exit(1);
+  process.exit();
 }
 
 // Starting point for scaffolding a module
