@@ -3,7 +3,7 @@
 
 
 # Installation
-`npm i -g drupal-scaffold-module`
+`npm i -g @nomadmystic/drupal-scaffold-module`
 
 # Commands
 `drupal-scaffold-build`
