@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const fuzzy = require('fuzzy');
-const {readdirSync} = require("fs");
+const {readdirSync} = require('fs');
 const { random } = require('lodash');
 
 /**
@@ -33,7 +33,8 @@ const isDrupalInstall = function() {
  */
 const getModulesFolderPath = function() {
 
-  return path.resolve(`${whereAmI()}/web/modules/custom/`);
+  // return path.resolve(`${whereAmI()}/web/modules/custom/`);
+  return path.resolve('/Users/keith/Sites/com.drupal-test-project/web/modules/custom');
 
 };
 

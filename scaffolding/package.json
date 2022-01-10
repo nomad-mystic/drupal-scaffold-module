@@ -1,0 +1,14 @@
+{
+  "name": "MODULE_NAME",
+  "version": "1.0.0",
+  "description": "MODULE_DESCRIPTION",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "production": "",
+    "development": ""
+  },
+  "author": "",
+  "license": "",
+  "homepage": ""
+}
