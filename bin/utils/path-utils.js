@@ -34,6 +34,8 @@ const isDrupalInstall = function() {
 const getModulesFolderPath = function() {
 
   // return path.resolve(`${whereAmI()}/web/modules/custom/`);
+
+  // @todo Need to figure out how to do this when in debug mood
   return path.resolve('/Users/keith/Sites/com.drupal-test-project/web/modules/custom');
 
 };

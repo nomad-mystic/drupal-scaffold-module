@@ -5,10 +5,33 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "production": "",
-    "development": ""
+    "production": "NODE_ENV=production webpack --config=webpack.config.js",
+    "development": "NODE_ENV=development webpack --config=webpack.config.js --watch"
   },
   "author": "",
   "license": "",
-  "homepage": ""
+  "homepage": "",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-proposal-async-generator-functions": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-export-default-from": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
+    "@babel/plugin-transform-arrow-functions": "^7.16.7",
+    "@babel/plugin-transform-async-to-generator": "^7.16.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.7",
+    "@babel/plugin-transform-object-assign": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.4.6",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.47.0",
+    "sass-loader": "^12.4.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-notifier": "^1.15.0"
+  }
 }

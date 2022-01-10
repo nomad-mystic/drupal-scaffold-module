@@ -51,9 +51,17 @@ const scaffoldModule = function(answers) {
     // Update the package.json
     updateRootScaffoldFile(
       modulePath,
-      moduleAdminName,
+      machineName,
       moduleDescriptionName,
       'package.json'
+    );
+
+    // Update the libraries
+    updateRootScaffoldFile(
+      modulePath,
+      machineName,
+      moduleDescriptionName,
+      `${machineName}.libraries.yml`
     );
 
   } catch (err) {
