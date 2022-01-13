@@ -57,36 +57,35 @@ const scaffoldModule = function(answers) {
 
     if (addWebpack) {
 
-      addWebpackFiles(modulePath, {
-        machineName,
-        moduleAdminName,
-        moduleDescriptionName,
-      });
+      addWebpackFiles(modulePath);
 
     }
 
-    // // Living list of files to update
-    // const filesToUpdate = [
-    //   'package.json',
-    //   `${machineName}.libraries.yml`,
-    //   `${machineName}.module`,
-    //   'webpack.config.js', // This is going to change once the option to not scaffold Webpack is given
-    // ];
-    //
-    // for (let file = 0; file < filesToUpdate.length; file++) {
-    //   if (filesToUpdate[file] && typeof filesToUpdate[file] !== 'undefined') {
-    //     // Update the file with users data
-    //     updateRootScaffoldFile(
-    //       modulePath,
-    //       filesToUpdate[file],
-    //       {
-    //         machineName,
-    //         moduleAdminName,
-    //         moduleDescriptionName,
-    //       }
-    //     );
-    //   }
-    // }
+    // Living list of files to update
+    let filesToUpdate = [
+      `${machineName}.module`,
+    ];
+
+    // If the user wants the Webpack files add them here to be updated
+    if (addWebpack) {
+      filesToUpdate.push('package.json');
+      filesToUpdate.push('webpack.config.js');
+    }
+
+    for (let file = 0; file < filesToUpdate.length; file++) {
+      if (filesToUpdate[file] && typeof filesToUpdate[file] !== 'undefined') {
+        // Update the file with users data
+        updateRootScaffoldFile(
+          modulePath,
+          filesToUpdate[file],
+          {
+            machineName,
+            moduleAdminName,
+            moduleDescriptionName,
+          }
+        );
+      }
+    }
   } catch (err) {
 
     console.error(err);
