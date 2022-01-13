@@ -2,6 +2,7 @@
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
+const colors = require('colors');
 
 // Internal
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('../utils/path-utils');
@@ -35,7 +36,7 @@ const scaffoldModule = function(answers) {
 
   try {
     if (fs.existsSync(modulePath)) {
-      console.log('There is already a module with that name. Please use another name.');
+      console.log(colors.red('There is already a module with that name. Please use another name.'));
 
       process.exit(0);
     }
