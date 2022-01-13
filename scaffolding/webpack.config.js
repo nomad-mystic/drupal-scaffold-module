@@ -2,17 +2,23 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackNotifier = require('webpack-notifier');
 const babelConfig = require('./babel.config.json');
+const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = (env) => {
-
-  console.log(env);
-
-  return {
+module.exports = () => {
+  let config = {
     mode: process.env.NODE_ENV,
     entry: {
       main: [
         path.resolve(__dirname, `source/js/main.js`),
         path.resolve(__dirname, `source/sass/main.scss`),
+      ],
+    },
+    optimization: {
+      minimize: process.env.NODE_ENV === 'production',
+      minimizer: [
+        new TerserPlugin({
+          test: /\.js(\?.*)?$/i,
+        }),
       ],
     },
     output: {
@@ -23,7 +29,7 @@ module.exports = (env) => {
       rules: [
         {
           test: /\.s[ac]ss$/i,
-          exclude: /node_modules/,
+          exclude: /(node_modules)/,
           use: [
             {
               loader: 'file-loader',
@@ -54,7 +60,7 @@ module.exports = (env) => {
         },
         {
           test: /\.js$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules)/,
           loader: 'babel-loader',
           options: {
             presets: babelConfig.presets,
@@ -80,4 +86,11 @@ module.exports = (env) => {
       })
     ],
   };
+
+  // Drupal doesn't like eval() so we have to modify for development
+  if (process.env.NODE_ENV === 'development') {
+    config.devtool = 'source-map';
+  }
+
+  return config;
 };

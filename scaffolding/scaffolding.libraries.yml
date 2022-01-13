@@ -1,4 +1,4 @@
-MACHINE_NAME:
+main:
   version: 1.x
   css:
     theme:
