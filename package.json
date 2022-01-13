@@ -1,6 +1,6 @@
 {
   "name": "@nomadmystic/drupal-scaffold-module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Scaffolds Drupal 8|9 modules with NodeJS",
   "main": "index.js",
   "scripts": {
