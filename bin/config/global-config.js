@@ -1,6 +1,6 @@
 // @todo Maybe turn this into an .env file
 const globalConfig = {
-  debug: true,
+  debug: false,
 };
 
 module.exports = globalConfig;
