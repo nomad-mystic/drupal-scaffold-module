@@ -1,5 +1,5 @@
 {
-  "name": "MODULE_NAME",
+  "name": "MACHINE_NAME",
   "version": "1.0.0",
   "description": "MODULE_DESCRIPTION",
   "main": "webpack.config.js",
@@ -27,6 +27,7 @@
     "babel-loader": "^8.2.3",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.4.6",
+    "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "sass": "^1.47.0",
     "sass-loader": "^12.4.0",

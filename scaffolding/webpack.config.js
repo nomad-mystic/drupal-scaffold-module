@@ -72,7 +72,7 @@ module.exports = (env) => {
         ignoreOrder: false, // Enable to remove warnings about conflicting order
       }),
       new WebpackNotifier({
-        title: 'MODULE_NAME Build',
+        title: 'ADMIN_NAME Build',
         contentImage: path.join(__dirname, 'webpack-build-icon.png'),
         alwaysNotify: true,
         skipFirstNotification: false,

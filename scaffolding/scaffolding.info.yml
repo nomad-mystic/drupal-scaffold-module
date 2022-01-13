@@ -1,5 +1,5 @@
-name: <MODULE_NAME>
-description: <MODULE_DESCRIPTION>
+name: ADMIN_NAME
+description: MODULE_DESCRIPTION
 package: Custom
 php: 7.4
 type: module

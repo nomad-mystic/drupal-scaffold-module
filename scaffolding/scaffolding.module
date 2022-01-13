@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ * @description
+ * @see https://api.drupal.org/api/drupal/core!modules!help!help.api.php/function/hook_help/
+ *
+ * @param string $route_name
+ * @param RouteMatchInterface $route_match
+ * @return string|void
+ */
+function MACHINE_NAME_help(string $route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    // Main module help for the oktane22_registration module.
+    case 'help.page.MACHINE_NAME':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This is the help page for ADMIN_NAME') . '</p>';
+
+      return $output;
+
+    default:
+  }
+}

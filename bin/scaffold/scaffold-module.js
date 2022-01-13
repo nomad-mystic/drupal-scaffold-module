@@ -6,7 +6,7 @@ const path = require('path');
 // Internal
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('../utils/path-utils');
 const { renameBaseFiles } = require('./build/rename-base-files');
-const { updateModuleFile } = require('./build/update-module-file');
+const { updateInfoFile } = require('./build/update-info-file');
 const { updateRootScaffoldFile } = require('./build/update-scaffold-file');
 
 /**
@@ -20,9 +20,9 @@ const scaffoldModule = function(answers) {
   const customPath = getModulesFolderPath();
 
   // User inputs
-  const machineName = answers.machineName;
-  const moduleAdminName = answers.moduleAdminName;
-  const moduleDescriptionName = answers.moduleDescriptionName;
+  const machineName = answers.machineName.trim();
+  const moduleAdminName = answers.moduleAdminName.trim();
+  const moduleDescriptionName = answers.moduleDescriptionName.trim();
 
   const modulePath = `${customPath}/${machineName}`;
 
@@ -42,28 +42,36 @@ const scaffoldModule = function(answers) {
 
     // Update our .module file
     renameBaseFiles(modulePath, machineName, '.module');
-    updateModuleFile(modulePath, {
+
+    // @todo Keith Abstract this out for other YMl files
+    updateInfoFile(modulePath, {
       machineName,
       moduleAdminName,
       moduleDescriptionName,
     });
 
-    // Update the package.json
-    updateRootScaffoldFile(
-      modulePath,
-      machineName,
-      moduleDescriptionName,
-      'package.json'
-    );
+    // Living list of files to update
+    const filesToUpdate = [
+      'package.json',
+      `${machineName}.libraries.yml`,
+      `${machineName}.module`,
+      'webpack.config.js',
+    ];
 
-    // Update the libraries
-    updateRootScaffoldFile(
-      modulePath,
-      machineName,
-      moduleDescriptionName,
-      `${machineName}.libraries.yml`
-    );
-
+    for (let file = 0; file < filesToUpdate.length; file++) {
+      if (filesToUpdate[file] && typeof filesToUpdate[file] !== 'undefined') {
+        // Update the file with users data
+        updateRootScaffoldFile(
+          modulePath,
+          filesToUpdate[file],
+          {
+            machineName,
+            moduleAdminName,
+            moduleDescriptionName,
+          }
+        );
+      }
+    }
   } catch (err) {
 
     console.error(err);

@@ -8,7 +8,7 @@ const yaml = require('js-yaml');
  * @param {object} userValues
  * @return void
  */
-const updateModuleFile = function(modulePath, userValues) {
+const updateInfoFile = function(modulePath, userValues) {
 
   // User inputs
   const machineName = userValues.machineName;
@@ -29,5 +29,5 @@ const updateModuleFile = function(modulePath, userValues) {
 };
 
 module.exports = {
-  updateModuleFile,
+  updateInfoFile,
 };
