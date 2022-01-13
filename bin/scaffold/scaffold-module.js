@@ -8,6 +8,7 @@ const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('../utils/pa
 const { renameBaseFiles } = require('./build/rename-base-files');
 const { updateInfoFile } = require('./build/update-info-file');
 const { updateRootScaffoldFile } = require('./build/update-scaffold-file');
+const { addWebpackFiles } = require('./build/add-webpack-files');
 
 /**
  * @description This creates a module based on the users inputs
@@ -54,28 +55,38 @@ const scaffoldModule = function(answers) {
       moduleDescriptionName,
     });
 
-    // Living list of files to update
-    const filesToUpdate = [
-      'package.json',
-      `${machineName}.libraries.yml`,
-      `${machineName}.module`,
-      'webpack.config.js', // This is going to change once the option to not scaffold Webpack is given
-    ];
+    if (addWebpack) {
 
-    for (let file = 0; file < filesToUpdate.length; file++) {
-      if (filesToUpdate[file] && typeof filesToUpdate[file] !== 'undefined') {
-        // Update the file with users data
-        updateRootScaffoldFile(
-          modulePath,
-          filesToUpdate[file],
-          {
-            machineName,
-            moduleAdminName,
-            moduleDescriptionName,
-          }
-        );
-      }
+      addWebpackFiles(modulePath, {
+        machineName,
+        moduleAdminName,
+        moduleDescriptionName,
+      });
+
     }
+
+    // // Living list of files to update
+    // const filesToUpdate = [
+    //   'package.json',
+    //   `${machineName}.libraries.yml`,
+    //   `${machineName}.module`,
+    //   'webpack.config.js', // This is going to change once the option to not scaffold Webpack is given
+    // ];
+    //
+    // for (let file = 0; file < filesToUpdate.length; file++) {
+    //   if (filesToUpdate[file] && typeof filesToUpdate[file] !== 'undefined') {
+    //     // Update the file with users data
+    //     updateRootScaffoldFile(
+    //       modulePath,
+    //       filesToUpdate[file],
+    //       {
+    //         machineName,
+    //         moduleAdminName,
+    //         moduleDescriptionName,
+    //       }
+    //     );
+    //   }
+    // }
   } catch (err) {
 
     console.error(err);
