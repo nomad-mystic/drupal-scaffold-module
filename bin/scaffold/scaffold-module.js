@@ -12,7 +12,12 @@ const { updateRootScaffoldFile } = require('./build/update-scaffold-file');
 /**
  * @description This creates a module based on the users inputs
  *
- * @param {object} answers
+ * @param {Object} answers
+ * @param {string} answers.machineName
+ * @param {string} answers.moduleAdminName
+ * @param {string} answers.moduleDescriptionName
+ * @param {boolean} answers.addWebpack
+ *
  * @return void
  */
 const scaffoldModule = function(answers) {
@@ -23,12 +28,13 @@ const scaffoldModule = function(answers) {
   const machineName = answers.machineName.trim();
   const moduleAdminName = answers.moduleAdminName.trim();
   const moduleDescriptionName = answers.moduleDescriptionName.trim();
+  const addWebpack = answers.addWebpack;
 
   const modulePath = `${customPath}/${machineName}`;
 
   try {
     if (fs.existsSync(modulePath)) {
-      console.log('There is already a module of that name. Please use another name.');
+      console.log('There is already a module with that name. Please use another name.');
 
       process.exit(0);
     }
@@ -36,11 +42,9 @@ const scaffoldModule = function(answers) {
     // Copy our files over to the modules folder
     fse.copySync(`${path.join(__dirname + '../../../scaffolding')}`, modulePath, {overwrite: false});
 
-    // Rename the YML and install file based on user input
+    // Rename the YML, install, and module file based on user input
     renameBaseFiles(modulePath, machineName, '.yml');
     renameBaseFiles(modulePath, machineName, '.install');
-
-    // Update our .module file
     renameBaseFiles(modulePath, machineName, '.module');
 
     // @todo Keith Abstract this out for other YMl files
@@ -55,7 +59,7 @@ const scaffoldModule = function(answers) {
       'package.json',
       `${machineName}.libraries.yml`,
       `${machineName}.module`,
-      'webpack.config.js',
+      'webpack.config.js', // This is going to change once the option to not scaffold Webpack is given
     ];
 
     for (let file = 0; file < filesToUpdate.length; file++) {
