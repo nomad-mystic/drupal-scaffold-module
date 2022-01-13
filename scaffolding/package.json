@@ -5,8 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "production": "NODE_ENV=production webpack --config=webpack.config.js",
-    "development": "NODE_ENV=development webpack --config=webpack.config.js --watch"
+    "production": "NODE_ENV=production webpack --config=webpack.config.js && npm run delete-maps",
+    "development": "NODE_ENV=development webpack --config=webpack.config.js --watch",
+    "delete-maps": "find ./ -name '*.map' -delete"
   },
   "author": "",
   "license": "",
