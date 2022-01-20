@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
-// https://www.npmjs.com/package/inquirer
+// Community
+require('dotenv').config();
+
 const inquirer = require('inquirer');
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
 
@@ -8,18 +10,20 @@ const colors = require('colors');
 
 // Get our configs
 const addOptions = require('./config/add-options');
-const globalConfig = require('./config/global-config');
 
 // Internal
 const { addNewType } = require('./scaffold/add-new-type');
 const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/path-utils');
 
-// Let the user know they need to be in the root of the project
-if (!isDrupalInstall() && !globalConfig.debug) {
+// Enable debug modes?
+const isDebugMode = !!process.env?.DEBUG;
 
-  console.log(colors.red('Your path is not at the root of your Drupal install.'))
+// Let the user know they need to be in the root of the project
+if (!isDrupalInstall() && !isDebugMode) {
+
+  console.log(colors.yellow('Your path is not at the root of your Drupal install.'))
   console.log(colors.yellow(`You are located at ${whereAmI()}`));
-  console.log(colors.green('Please move to the root Drupal install folder.'));
+  console.log(colors.yellow('Please move to the root Drupal install folder.'));
 
   process.exit();
 }

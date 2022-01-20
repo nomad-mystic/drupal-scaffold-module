@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
 // Community
+require('dotenv').config();
+
 const inquirer = require('inquirer');
 const colors = require('colors');
 
@@ -9,15 +11,21 @@ const buildOptions = require('./config/build-options');
 
 // Internal
 const { scaffoldModule } = require('./scaffold/scaffold-module');
-const { whereAmI, isDrupalInstall, getModulesFolderPath } = require('./utils/path-utils');
-const globalConfig = require('./config/global-config');
+const {
+  whereAmI,
+  isDrupalInstall,
+  getModulesFolderPath
+} = require('./utils/path-utils');
+
+// Enable debug mode?
+const isDebugMode = !!process.env?.DEBUG;
 
 // Let the user know they need to be in the root of the project
-if (!isDrupalInstall() && !globalConfig.debug) {
+if (!isDrupalInstall() && !isDebugMode) {
 
-  console.log(colors.red('Your path is not at the root of your Drupal install.'))
+  console.log(colors.yellow('Your path is not at the root of your Drupal install.'))
   console.log(colors.yellow(`You are located at ${whereAmI()}`));
-  console.log(colors.green('Please move to the root Drupal install folder.'));
+  console.log(colors.yellow('Please move to the root Drupal install folder.'));
 
   process.exit();
 }
