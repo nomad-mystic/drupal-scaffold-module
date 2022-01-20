@@ -7,8 +7,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
- * Implements hook_help().
- * @description
+ * @description Implements hook_help()
  * @see https://api.drupal.org/api/drupal/core!modules!help!help.api.php/function/hook_help/
  *
  * @param string $route_name
@@ -27,3 +26,11 @@ function MACHINE_NAME_help(string $route_name, RouteMatchInterface $route_match)
     default:
   }
 }
+
+/**
+ * @description Implements hook_preprocess_node()
+ * @see https://api.drupal.org/api/drupal/core!modules!node!node.module/function/template_preprocess_node
+ *
+ * @return void
+ */
+function MACHINE_NAME_preprocess_node(&$vars) {}
